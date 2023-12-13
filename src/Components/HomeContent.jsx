@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, {useState} from 'react';
 import '../Css/home.css';
 import backgroundhome from '../assets/3Dmanbg.png'
 import backgroundhom from '../assets/hompageaura.png'
 import homepagelogo from '../assets/homelogo.png'
+import { useNavigate } from 'react-router';
 export const HomeContent = () => {
+    const navigate = useNavigate();
+    function Gotonetworthform(){
+        navigate('/networthform')
+    }
     return (
         <div className="home-container">
             <div className="image-container">
@@ -18,7 +23,7 @@ export const HomeContent = () => {
                 <br/>
                 Experience the ease of tracking your financial journey today for a prosperous tomorrow.
                 </h2>
-                <button className="action-button">Setup your Finances</button>
+                <button className="action-button" onClick={() => Gotonetworthform()}>Setup your Finances</button>
             </div>
             <div className="image-container">
                 <img src={backgroundhome} alt="Image 2" className="homepage-image" />
