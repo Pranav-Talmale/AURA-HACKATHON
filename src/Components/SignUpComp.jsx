@@ -66,7 +66,8 @@ useEffect(() => {
                 onClick={register}
                 />
                
-               <p>Already have an account? <a href='/login' className='loginlink'>Login</a></p>
+               {/* <button onClick={() => navigate('/login')} className='redirectingto'>SignUp</button> */}
+               <p>Already have an account? <button onClick={() => navigate('/login')} className='redirectingto'>Log In</button></p>
 
 
             </div>

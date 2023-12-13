@@ -1,77 +1,266 @@
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(45deg, #007BFF, #00BFFF);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0767bbd0;
+    margin: 20px;
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+}
+
+.form {
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.heading {
+    font-size: 2em;
+    color: #00346b;
+    text-align: center;
+    font-family: 'Bagel Fat One', cursive;
+    margin-bottom: 20px;
+}
+
+.email,
+.password {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #007BFF;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.password {
+    margin-top: 5px;
+}
+
+.button {
+    width: 100%;
+    max-width: 100px;
+    height: 40px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    background-color: #00346b;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.button:hover {
+    background-color: #007BFF;
+}
+
+.redirect {
+    text-align: center;
+    font-size: 1em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.link {
+    color: #e74c3c;
+    font-size: 1em;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #c0392b;
+}
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 1200px) {
+    .form-container {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .form {
+        width: 90%;
+        font-size: 1em;
+        margin: 0 auto;
+    }
+
+    .email,
+    .password {
+        font-size: 0.9em;
+    }
+
+    .button {
+        font-size: 1em;
+    }
+
+    .heading {
+        font-size: 1.5em;
+    }
+
+    .redirect {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-container {
+        margin: 10px;
+    }
+
+    .form {
+        padding: 20px;
+    }
+
+    .email,
+    .password {
+        font-size: 0.8em;
+    }
+
+    .button {
+        font-size: 0.9em;
+    }
+
+    .heading {
+        font-size: 1.2em;
+    }
+
+    .redirect {
+        font-size: 0.9em;
+    }
+}
+
+.signupdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #007BFF, #00BFFF);
+}
+
 .signupform {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.2em;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
 }
 
 .signupemail {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     border-radius: 6px;
-    border: 1px solid blanchedalmond;
-    color: aliceblue;
-    font-size: 17px;
+    border: 1px solid #00346b;
+    color: #fff;
+    font-size: 1em;
     padding: 5px;
 }
 
 .signuppassword {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     border-radius: 6px;
-    border: 1px solid blanchedalmond;
-    color: red;
-    font-size: 17px;
+    border: 1px solid #00346b;
+    color: #fff;
+    font-size: 1em;
     padding: 5px;
 }
 
 .signupsubmit {
-    width: 100px;
-    height: auto;
-    font-size: 15px;
+    width: 100%;
+    max-width: 100px;
+    height: 40px;
+    font-size: 1em;
+    border: none;
     border-radius: 6px;
-    border: 1px solid blanchedalmond;
-    padding: 7px;
+    background-color: #00346b;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.signupsubmit:hover {
+    background-color: #007BFF;
 }
 
 .heading {
-    font-size: 35px;
-    color: blueviolet;
+    font-size: 2.5em;
+    color: #00346b;
     text-align: center;
     font-family: 'Bagel Fat One', cursive;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 1000px) {
     .signupform {
         width: 80%;
-        font-size: 16px;
+        font-size: 1em;
         margin: 0 auto;
     }
 
     .signupemail,
     .signuppassword {
         width: 100%;
-        font-size: 14px;
+        font-size: 0.9em;
     }
 
     .signupsubmit {
         width: 100%;
-        font-size: 14px;
+        font-size: 0.9em;
     }
 
     .heading {
-        font-size: 28px;
+        font-size: 1.5em;
     }
 }
 
-/* For devices with screen width less than or equal to 400px (e.g., smartphones) */
 @media screen and (max-width: 400px) {
     .heading {
-        font-size: 28px;
+        font-size: 1.5em;
     }
 }
+
+
+
+
+
+
