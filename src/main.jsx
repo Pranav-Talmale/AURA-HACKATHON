@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {app} from './firebaseConfig.js';
+import {app, auth} from './firebaseConfig.js';
 
 import {
   RouterProvider,
