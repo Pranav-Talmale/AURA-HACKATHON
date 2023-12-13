@@ -6,9 +6,8 @@ import {
 import HomePage from '../Pages/HomePage'
 import SignUpPage from '../Pages/SignUpPage'
 import LoginPage from '../Pages/LoginPage'
-
-
-
+import NetWorthFormPage from '../Pages/NetworthFormPage';
+import DashboardPage from '../Pages/DashboardPage';
 export const router = createBrowserRouter([
     {
         path: '/home',
@@ -21,5 +20,13 @@ export const router = createBrowserRouter([
     {
         path: '/login',
         element: <LoginPage />
+    },
+    {
+        path: '/networthform',
+        element: <NetWorthFormPage/>
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardPage/>
     }
 ])
