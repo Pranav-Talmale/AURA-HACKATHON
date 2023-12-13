@@ -1,81 +1,58 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import { GetuserNetworth } from '../Api/DashboardAPI'
+import { GetuserNetworth } from '../api/DashboardAPI'
+import { Expensetracker } from './Expensetracker'
 import '../Css/dashboard.css'
+
 export const DashboardComponent = () => {
     const [networthData, setNetworthData] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-        // Stored the networthID in localStorage
-        const networthID = localStorage.getItem('networthID');
+        const userID = localStorage.getItem('userID');
 
-        if (networthID) {
-            // Fetch net worth data and update state
-            GetuserNetworth(networthID)
-                .then((data) => setNetworthData(data))
-                .catch((error) => console.error('Error fetching net worth data:', error));
+        if (userID) {
+            GetuserNetworth(userID)
+                .then((data) => {
+                    setNetworthData(data);
+                    setLoading(false);
+                })
+                .catch((error) => {
+                    console.error('Error fetching net worth data:', error);
+                    setError(error);
+                    setLoading(false);
+                });
         }
-    }, [networthData]);
+    }, []);
+
     return (
-        <div>
-            <table>
-                <tbody>
-                    <tr>
-                        <th className="headline">Cash</th>
-                        <th className="datacali">{networthData.cash} INR</th>
-                    </tr>
-                    <tr>
-                        <td className="nameofsubcol">{networthData.name}</td>
-                        <td className="datacali">{networthData.cash} INR</td>
-                    </tr>
-                    <tr>
-                        <th className="headline">Bank Amount</th>
-                        <th className="datacali">{networthData.bankAmount} INR</th>
-                    </tr>
-                    <tr>
-                        <td className="nameofsubcol">{networthData.name}</td>
-                        <td className="datacali">{networthData.bankAmount} INR</td>
-                    </tr>
-                    <tr>
-                        <th className="headline">Investments</th>
-                        <th className="datacali"> {networthData.mutualFunds + networthData.bonds + networthData.stocks + networthData.sip} INR</th>
-                    </tr>
-                    <tr>
-                        <td className="nameofsubcol">MutualFunds</td>
-                        <td className="datacali">{networthData.mutualFunds} INR</td>
-                    </tr>
-                    <tr>
-                        <td className="nameofsubcol">Bonds</td>
-                        <td className="datacali">{networthData.bonds} INR</td>
-                    </tr>
-                    <tr>
-                        <td className="nameofsubcol">Stocks</td>
-                        <td className="datacali">{networthData.stocks} INR</td>
-                    </tr>
-                    <tr>
-                        <td className="nameofsubcol">SIP</td>
-                        <td className="datacali">{networthData.sip} INR</td>
-                    </tr>
-                    <tr>
-                        <th className="headline">Loans</th>
-                    </tr>
+        <div className="containerofdashboard">
+            {loading && <p>Loading...</p>}
+            {error && <p>Error: {error.message}</p>}
+            {!loading && !error && (
+                <>
+                    <table>
+                        <tbody>
 
-                    {
-                        networthData && networthData.loans && networthData.loans.length > 0 ? (
-                            networthData.loans.map((loan, index) => (
-                                <tr key={index}>
-                                    <td className="nameofsubcol">{loan.category}</td>
-                                    <td className="datacali">{loan.amount} INR</td>
+                            {Object.entries(networthData).map(([key, value]) => (
+                                <tr key={key}>
+                                    <th className="headline">{key}</th>
+                                    <th className="datacali">
+                                        {typeof value === 'object' ? JSON.stringify(value) : `${value} INR`}
+                                    </th>
                                 </tr>
-                            ))
-                        ) : (
-                            <tr>
-                                <td colSpan="2">No loans available</td>
-                            </tr>
-                        )}
+                            ))}
 
 
-                </tbody>
-            </table>
+
+                        </tbody>
+                    </table>
+                    <Expensetracker />
+                </>
+            )}
         </div>
     )
 }

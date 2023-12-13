@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import '../Css/networthform.css';
-import { AddUserNetworth } from '../Api/DashboardAPI'
+import { AddUserNetworth } from '../api/DashboardAPI'
 import { useNavigate } from 'react-router-dom';
 const NetWorthForm = () => {
   const [formData, setFormData] = useState({
@@ -58,7 +58,7 @@ const NetWorthForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Call the API function to add data to Firestore
+      
       await AddUserNetworth(formData);
       navigate('/dashboard');
     } catch (error) {

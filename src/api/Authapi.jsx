@@ -79,12 +79,12 @@ export const Login = async (email, password) => {
 
 
 // LOG OUT
-export const Logout = () => {
+// export const Logout = () => {
 
-    try {
-        signOut(auth);
-        localStorage.removeItem('userID');
-    } catch (error) {
-        return error;
-    }
-}
+//     try {
+//         signOut(auth);
+//         localStorage.removeItem('userID');
+//     } catch (error) {
+//         return error;
+//     }
+// }

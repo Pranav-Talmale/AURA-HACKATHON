@@ -30,7 +30,7 @@ useEffect(() => {
         }
         
     })
-}, []);
+}, [navigate]);
 // REGISTER FORM
     return (
         <div className='signupdiv'>
