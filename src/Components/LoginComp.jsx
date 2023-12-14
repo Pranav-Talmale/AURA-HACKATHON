@@ -35,9 +35,9 @@ export default function LoginComponent() {
     // LOGIN PAGE
     return (
         <div className='login-container'>
-            <h1 className='loginheading'>Login with your credentials</h1>
+            <h1 className='loginheading'>Login</h1>
             <div className='loginform'>
-                <label>Email</label>
+                <label className='form-labelLogin'>Email</label>
                 <input
                     type='email'
                     name='email'
@@ -46,7 +46,7 @@ export default function LoginComponent() {
                     onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
                 />
 
-                <label>Password</label>
+                <label className='form-labelLogin'>Password</label>
                 <input
                     type='password'
                     name='password'
@@ -63,7 +63,8 @@ export default function LoginComponent() {
                 />
 
                 <div className='redirectingtosignup'>
-                    new here or want to explore then SignUp
+                    New here ?
+                    Click on the SignUp and get started!
                     <button onClick={() => navigate('/')} className='redirectingto'>SignUp</button>
                 </div>
             </div>
