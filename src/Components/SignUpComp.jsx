@@ -38,7 +38,7 @@ useEffect(() => {
 
             <div className="signupform">
 
-                <label>UserEmail</label>
+                <label className='form-label'>User Email</label>
 
                 <input 
                 type="email" 
@@ -48,7 +48,7 @@ useEffect(() => {
                 onChange={(event) => setCredentials({...credentials, email: event.target.value})}
                 />
 
-                <label>Password</label>
+                <label className='form-label'>Password</label>
 
                 <input 
                 type="password" 
